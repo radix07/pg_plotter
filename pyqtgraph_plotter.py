@@ -13,7 +13,7 @@ configs={}
 plotList=[]
 downsamp = 0
 autoExport = 1  #move to config
-legenedEnable = 1
+legendEnable = 1
 
 def parsePlot(configFile='plotconfig.py'):
     execfile(configFile,configs)    #have to handle local python scope issues with execfile by passing to dict and accessing key value           
@@ -33,7 +33,7 @@ def parsePlot(configFile='plotconfig.py'):
 
     for i in configs['plotConfig']:
         plotList.append(win.addPlot(title=i["name"]))
-        if legenedEnable:
+        if legendEnable:
             plotList[len(plotList)-1].addLegend()
         plotList[len(plotList)-1].showGrid(1,1)
         
@@ -113,3 +113,4 @@ if __name__ == '__main__':
             print "\n\nAuto Export Enabled. Check the 'auto_png_export' directory for image exports"
         else:
             QtGui.QApplication.instance().exec_()
+            
